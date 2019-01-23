@@ -6,7 +6,11 @@ using System.Text;
 
 namespace Sample_News_EF_App.Data
 {
-    class NewsContext:DbContext
+    //команды EF основные выполнять нугет пакадж менеджере консоль
+    //add-migration %dbname% - создать миграцию
+    //update-database –verbose - применить изменения и создать или изменить базу
+
+    class NewsContext :DbContext
     {
         public DbSet<News> News { get; set; }
 
