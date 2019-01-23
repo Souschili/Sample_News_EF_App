@@ -1,4 +1,5 @@
-﻿using Sample_News_EF_App.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Sample_News_EF_App.Data;
 using Sample_News_EF_App.Model;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,43 @@ namespace Sample_News_EF_App
                 //n.Text = "Sorry :0(";
                 //db.News.Update(n);
                 //db.SaveChanges();
+
+                //миграция addcoments добавляем коментарии к записи
+                // var t = db.News.FirstOrDefault(x => x.Id == 1);
+                // if(t.Coments!=null)
+                // {
+                //     t.Coments.Add(new Coment { Author = "Kakoyto", Text = "This is bull shit" }
+                //     );
+                // db.SaveChanges();
+                //
+                // }
+                // else
+                // {
+                //     Console.WriteLine("We have problem ^(");
+                // }
+
+                //Вывод новости с айди 1  и коментария(ев) к ней
+                var news1 = db.News.Where(x => x.Id == 1).Include(p => p.Coments).FirstOrDefault();
+                // if(news1!=null)
+                // {
+                //     Console.WriteLine($"Сама новость {news1.Text} за авторством {news1.Author}\n");
+                //     foreach (var e in news1.Coments)
+                //     {
+                //         Console.WriteLine(e.Text);
+                //
+                //     }
+                // }
+
+                //редактирование коментария
+                //news1.Coments[0].Text = "Perfect job you are great";
+                //db.SaveChanges();
+                //Console.WriteLine(news1.Coments[0].Text);
+
+
+                //Console.WriteLine(t.Text);
             
+
+
             }
 
 
